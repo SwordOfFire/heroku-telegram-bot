@@ -18,3 +18,9 @@ r = redis.from_url(os.environ.get("REDIS_URL"))
 # bot = telebot.TeleBot(token)
 # some_api = some_api_lib.connect(some_api_token)
 #              ...
+
+bot = telebot.TeleBot(token)
+
+@bot.message_handler(content_types=["text"])
+def greeting(message):
+  bot.send_message(message.chat.id, 'Привет')
